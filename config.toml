@@ -36,10 +36,10 @@ disqusShortname = "duckpuppy"
   enable_mathjax    = true
 
   # Enable / Disable algolia search
-  algolia_search    = false
-  algolia_appId     = "Y2C4RWMPXW"
-  algolia_apiKey    = "50ea7f8c41c0ad233926e0be2b769ed1"
-  algolia_indexName = "default-content"
+  algolia_search    = true
+  algolia_appId     = "BD7H7DDIHZ"
+  algolia_apiKey    = "c98018df99d0f516ec0744bceddec327"
+  algolia_indexName = "duckpuppy_com"
 
   # Header configuration
     # your subtitle if you want to use any
