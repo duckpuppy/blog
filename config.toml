@@ -55,15 +55,19 @@ disqusShortname = "duckpuppy"
     permanentTopNav = false
 
   # social media profile urls for the footer links
-  facebook   = ""
+  facebook   = "https://www.facebook.com/duckpuppy"
   twitter    = "https://twitter.com/duckpuppy"
   googleplus = ""
   pinterest  = ""
-  instagram  = ""
+  instagram  = "https://www.instagram.com/duckpuppy"
   tumblr     = ""
-  youtube    = ""
+  youtube    = "https://www.youtube.com/duckpuppy"
   vimeo      = ""
   github     = "https://github.com/duckpuppy"
+  gitlab     = "https://gitlab.com/duckpuppy"
+  bitbucket  = "https://bitbucket.org/duckpuppy"
+  steam      = "https://steamcommunity.com/id/duckpuppy"
+  twitch     = "https://twitch.tv/duckpuppy"
 
 # don't change anything here
 [taxonomies]
