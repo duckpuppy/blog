@@ -1,0 +1,1 @@
+hugo server -D --baseUrl=$(hostname) --bind="0.0.0.0"
