@@ -11,13 +11,15 @@ disqusShortname = "duckpuppy"
 
 SectionPagesMenu = "main"
 
+pygmentsStyle = "native"
+pygmentsCodeFences = true
+
 [author]
   name = "DuckPuppy"
 
-
 [[menu.main]]
   name = "Posts"
-  weight = -1120
+  weight = -120
   identifier = "post"
   url = "/post/"
 
