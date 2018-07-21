@@ -23,6 +23,6 @@ projects in my (very limited) spare time.
 
 This blog is built with [Hugo](https://gohugo.io/), a great static website
 generator written in Go. I'm using the
-[hugo-dusk](https://themes.gohugo.io/hugo-dusk/) theme. The blog is hosted on
+[bilberry](https://themes.gohugo.io/bilberry-hugo-theme/) theme. The blog is hosted on
 [Github.com](https://github.com/duckpuppy/duckpuppy.com) and is built by
 [CircleCI](https://circleci.com/).
