@@ -4,7 +4,7 @@ theme = "bilberry-hugo-theme"
 
 enableRobotsTXT = true
 
-# Change to your content language. Supported values: en, de, es, fr, ru
+# Change to one of your content languages definded at the end.
 DefaultContentLanguage = "en"
 
 # Enable / Disable Google Analytics statistics for your site
@@ -40,6 +40,8 @@ disqusShortname = "duckpuppy"
   algolia_appId     = "BD7H7DDIHZ"
   algolia_apiKey    = "c98018df99d0f516ec0744bceddec327"
   algolia_indexName = "duckpuppy_com"
+    # Set this option to false if you want to search within all articles in all languages at once
+    algolia_currentLanguageOnly = true
 
   # Header configuration
     # your subtitle if you want to use any
@@ -54,7 +56,19 @@ disqusShortname = "duckpuppy"
     # always display the top navigation (with pages and search) on non-mobile screens
     permanentTopNav = false
 
+    # show a language chooser in the header
+    showHeaderLanguageChooser = true
+
+    # credits line configuration
+    copyrightBy = "by Patrick Aikens"
+    copyrightUseCurrentYear = true  # set to true to always display the current year in the copyright
+    copyrightYearOverride = "2017"
+    copyrightUrl = "https://duckpuppy.com"
+    creditsText = "Random Inconsequential Thoughts"
+    creditsUrl = "https://github.com/duckpuppy/blog"
+
   # social media profile urls for the footer links
+  showSocialMedia = true
   facebook   = "https://www.facebook.com/duckpuppy"
   twitter    = "https://twitter.com/duckpuppy"
   googleplus = ""
@@ -69,7 +83,17 @@ disqusShortname = "duckpuppy"
   steam      = "https://steamcommunity.com/id/duckpuppy"
   twitch     = "https://twitch.tv/duckpuppy"
 
-# don't change anything here
+# customize your available languages for your multi-langual site
+# or delete the [Languages] blog to use the theme with only one supported language
+# [Languages]
+#   [Languages.en]
+#     weight = 1
+#   [Languages.de]
+#     weight = 2
+#     title = "Mein cooler neuer Blog"
+#     subtitle = "Hallo Welt! Dies ist der epischste Untertitel aller Zeiten."
+
+# don't change anything below
 [taxonomies]
   author   = "author"
   tag      = "tags"
