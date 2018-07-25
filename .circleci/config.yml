@@ -2,10 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: felicianotech/docker-hugo:0.34
-    branches:
-      ignore:
-        - gh-pages
+      - image: felicianotech/docker-hugo:0.45
     steps:
       - checkout
       - run:
@@ -14,14 +11,9 @@ jobs:
             git submodule sync --recursive
             git submodule update --init --recursive
       - run:
-          name: "Setup Worktree"
+          name: "Check out website"
           command: |
-            rm -rf public
-            mkdir public
-            git worktree prune
-            rm -rf .git/worktrees/public
-            git worktree add -B gh-pages public origin/gh-pages
-            rm -rf public/*
+            git clone git@github.com:duckpuppy/duckpuppy.github.io public
       - run:
           name: "Run Hugo"
           command: HUGO_ENV=production hugo -v -s ~/project
