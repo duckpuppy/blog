@@ -17,6 +17,11 @@ jobs:
       - run:
           name: "Run Hugo"
           command: HUGO_ENV=production hugo -v -s ~/project
+      - run:
+          name: "Upload search index"
+          command: |
+            go get github.com/duckpuppy/algolia-hugo
+            algolia-hugo uodate
       # - run:
       #     name: "Test Website"
       #     command: htmlproofer ~/project/public --allow-hash-href --check-html --empty-alt-ignore
