@@ -27,25 +27,7 @@
 
         <div class="social-media">
             <strong>{{ i18n "socialMedia" }}</strong>
-
-            {{ with .Site.Params.facebook }}
-                <a href="{{ . }}" target="_blank"><i class="fa fa-facebook"></i></a>
-            {{ end }}
-            {{ with .Site.Params.twitter }}
-                <a href="{{ . }}" target="_blank"><i class="fa fa-twitter"></i></a>
-            {{ end }}
-            {{ with .Site.Params.googleplus }}
-                <a href="{{ . }}" target="_blank"><i class="fa fa-google-plus-official"></i></a>
-            {{ end }}
-            {{ with .Site.Params.pinterest }}
-                <a href="{{ . }}" target="_blank"><i class="fa fa-pinterest"></i></a>
-            {{ end }}
-            {{ with .Site.Params.instagram }}
-                <a href="{{ . }}" target="_blank"><i class="fa fa-instagram"></i></a>
-            {{ end }}
-            {{ with .Site.Params.tumblr }}
-                <a href="{{ . }}" target="_blank"><i class="fa fa-tumblr"></i></a>
-            {{ end }}
+            <br />
             {{ with .Site.Params.github }}
                 <a href="{{ . }}" target="_blank"><i class="fa fa-github"></i></a>
             {{ end }}
@@ -66,6 +48,24 @@
             {{ end }}
             {{ with .Site.Params.vimeo }}
                 <a href="{{ . }}" target="_blank"><i class="fa fa-vimeo"></i></a>
+            {{ end }}
+            {{ with .Site.Params.facebook }}
+                <a href="{{ . }}" target="_blank"><i class="fa fa-facebook"></i></a>
+            {{ end }}
+            {{ with .Site.Params.twitter }}
+                <a href="{{ . }}" target="_blank"><i class="fa fa-twitter"></i></a>
+            {{ end }}
+            {{ with .Site.Params.googleplus }}
+                <a href="{{ . }}" target="_blank"><i class="fa fa-google-plus-official"></i></a>
+            {{ end }}
+            {{ with .Site.Params.pinterest }}
+                <a href="{{ . }}" target="_blank"><i class="fa fa-pinterest"></i></a>
+            {{ end }}
+            {{ with .Site.Params.instagram }}
+                <a href="{{ . }}" target="_blank"><i class="fa fa-instagram"></i></a>
+            {{ end }}
+            {{ with .Site.Params.tumblr }}
+                <a href="{{ . }}" target="_blank"><i class="fa fa-tumblr"></i></a>
             {{ end }}
         </div>
     </div>
