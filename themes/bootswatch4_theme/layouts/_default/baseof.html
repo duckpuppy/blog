@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html class="no-js" lang="{{ .Site.Language.Lang }}">
+    <head>
+        {{ partial "head/meta.html" . }}
+
+        <link rel="shortcut icon" href="/favicon.ico">
+
+        <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
+        
+        {{ partial "head/styles.html" . }}
+
+        <!-- rss -->
+        <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
+    </head>
+
+    <body lang="{{ if .Site.Params.languageCode }}{{ .Site.Params.languageCode }}{{ else }}en{{ end }}">
+        {{ block "header" . }}
+            <!-- navbar -->
+            {{ partial "header/navbar.html" . }}
+        {{ end }}
+
+        {{ block "main" . }}{{ end }}
+
+        {{ block "footer" . }}
+            {{ partial "footer/scripts.html" . }}
+        {{ end }}
+
+        {{ template "_internal/google_analytics_async.html" . }}
+
+    </body>
+</html>

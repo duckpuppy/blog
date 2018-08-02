@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="col">
+        <h3>
+            <a href="{{.Permalink}}">{{ .Title }}</a>
+        </h3>
+        <small>
+            <span class="label label-primary">
+            {{ humanize .Type }} posted on 
+            {{ if .Site.Params.strings.date_format }}
+                {{ .Date.Format .Site.Params.strings.date_format }}
+            {{ else }}
+                {{ .Date.Format "Mon, Jan 2, 2006" }}
+            {{ end }}
+            </span>
+            {{ if .Params.categories }}
+                in {{ range $i, $e :=.Params.categories }} {{if $i}} , {{end}}
+                <a href="/categories/{{ . | urlize }}">{{ . }}</a>
+                {{ end }}
+            {{ end }}
+            {{ if .Params.tags }}
+                tagged {{ range $i, $e :=.Params.tags }} {{if $i}} , {{end}}
+                <a href="/tags/{{ . | urlize }}">{{ . }}</a>
+                {{ end }}
+            {{ end }}
+        </small>
+    </div>
+</div>

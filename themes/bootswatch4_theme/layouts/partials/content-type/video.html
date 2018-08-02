@@ -1,0 +1,21 @@
+<article>
+    <div class="row">
+        <div class="offset-md-1 col-md-10 mt-2 embed-responsive embed-responsive-16by9">
+        {{ with .Params.youtube }}
+            <iframe class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/{{ . }}?rel=0" frameborder="0" allowfullscreen></iframe>
+        {{ end }}
+        {{ with .Params.vimeo }}
+            <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/{{ . }}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        {{ end }}
+        </div>
+    </div>
+    <div class="row">
+        <hr />
+    </div>
+    <div class="row">
+        <div class="col">
+            {{ partial "post-content" . }}
+        </div>
+    </div>
+</article>
+    

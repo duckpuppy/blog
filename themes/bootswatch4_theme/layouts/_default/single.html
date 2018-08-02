@@ -1,0 +1,45 @@
+{{ define "title" }}
+    {{ .Title }} &ndash; {{ .Site.Title }}
+{{ end }}
+
+{{ define "main" }}
+{{ .Scratch.Set "singlepage" true }}
+<main class="container mt-4">
+    <div class="card bg-transparent border-0">
+        <h3 class="card-header bg-primary display-5 text-right">{{ .Title }}</h3>
+        <p class="card-title">
+            <small>
+                <span class="label label-primary">
+                {{ humanize .Type }} posted on 
+                {{ if .Site.Params.strings.date_format }}
+                    {{ .Date.Format .Site.Params.strings.date_format }}
+                {{ else }}
+                    {{ .Date.Format "Mon, Jan 2, 2006" }}
+                {{ end }}
+                </span>
+                {{ if .Params.categories }}
+                    in {{ range $i, $e :=.Params.categories }} {{if $i}} , {{end}}
+                    <a href="/categories/{{ . | urlize }}">{{ . }}</a>
+                    {{ end }}
+                {{ end }}
+                {{ if .Params.tags }}
+                    tagged {{ range $i, $e :=.Params.tags }} {{if $i}} , {{end}}
+                    <a href="/tags/{{ . | urlize }}">{{ . }}</a>
+                    {{ end }}
+                {{ end }}
+            </small>
+        </p>
+        <div class="card-text">
+            {{ if or (fileExists (print "layouts/partials/content-type/" .Type ".html") ) (fileExists (print "themes/bootswatch4_theme/layouts/partials/content-type/" .Type ".html")) }}
+                {{ partial (print "content-type/" .Type ".html") . }}
+            {{ else }}
+                {{ partial (print "content-type/article.html") . }}
+            {{ end }}
+        </div>
+    </div>
+
+</main>
+
+{{ template "_internal/disqus.html" . }}
+{{ .Scratch.Set "singlepage" false }}
+{{ end }}

@@ -1,0 +1,43 @@
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="{{ .Site.BaseURL }}">{{ if .Site.Params.strings.home_navbar_link }}{{ .Site.Params.strings.home_navbar_link }}{{ else }}Home{{ end }}</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ .Site.BaseURL }}/article/">{{ if .Site.Params.strings.blog_navbar_link }}{{ .Site.Params.strings.blog_navbar_link }}{{ else }}Blog{{ end }}</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ .Site.BaseURL }}/tags/">Tags</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ .Site.BaseURL }}/categories/">Categories</a></li>
+                {{ range .Site.Menus.main }}
+                    <li class="nav-item"><a class="nav-link" href="{{.URL}}"> {{ .Name }} </a></li>
+                {{ end }}
+                <!-- {{ $currentPage := . }}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="sectionDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Sections
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="sectionDropdown">
+                        {{ range $.Site.Menus.categories }}
+                            <a class="dropdown-item{{if or ($currentPage.IsMenuCurrent "categories" .) ($currentPage.HasMenuCurrent "categories" .) }} active{{end}}" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a>
+                        {{ end }}
+                    </div>
+                </li> -->
+                {{ if .Site.Params.projects }}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="projectsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Projects
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="projectsDropdown">
+                        {{ range $key, $value := .Site.Params.projects }}
+                            <a class="dropdown-item" href="{{ $value }}">{{ $key }}</a>
+                        {{ end }}
+                    </div>
+                </li>
+                {{ end }}
+            </ul>
+        </div>
+    </nav>
+</div>
