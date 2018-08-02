@@ -17,11 +17,6 @@ jobs:
       - run:
           name: "Run Hugo"
           command: HUGO_ENV=production hugo -v -s ~/project
-      - run:
-          name: "Upload search index"
-          command: |
-            wget --quiet -c https://github.com/duckpuppy/algolia-hugo/releases/download/v0.0.3/algolia-hugo_0.0.3_Linux_x86_64.tar.gz -O - | tar -xz -C /usr/local/bin/
-            algolia-hugo update
       # - run:
       #     name: "Test Website"
       #     command: htmlproofer ~/project/public --allow-hash-href --check-html --empty-alt-ignore
@@ -29,6 +24,8 @@ jobs:
           name: "Deploy to GH Pages"
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              wget --quiet -c https://github.com/duckpuppy/algolia-hugo/releases/download/v0.0.3/algolia-hugo_0.0.3_Linux_x86_64.tar.gz -O - | tar -xz -C /usr/local/bin/
+              algolia-hugo update
               git config --global user.email "$GH_EMAIL" > /dev/nul 2>&1
               git config --global user.name "$GH_NAME" > /dev/nul 2>&1
               cd public && git add --all && git commit -m "Publishing to gh-pages" && git push || exit 0
