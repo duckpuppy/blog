@@ -2,6 +2,8 @@ baseurl: 'http://duckpuppy.com'
 title: Random Inconsequential Thoughts
 paginate: 10
 theme: bootswatch4_theme
+sectionPagesMenu: categories
+# pluralizelisttitles: false
 permalinks:
   post: '/blog/:year/:month/:day/:title/'
 author:
