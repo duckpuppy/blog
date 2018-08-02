@@ -1,0 +1,35 @@
+baseurl: 'http://duckpuppy.com'
+title: Random Inconsequential Thoughts
+paginate: 10
+theme: bootswatch4_theme
+permalinks:
+  post: '/blog/:year/:month/:day/:title/'
+author:
+  name: Patrick Aikens
+  email: paikens <at> gmail <dot> com
+params:
+  description: The place where I dump my brain
+  languagecode: en-US
+  author: Patrick Aikens
+  copyright: 2018 ~ Patrick Aikens
+  use_summaries: true
+  twitter:
+    id: '@duckpuppy'
+    image: 'image/duckpuppy_icon.jpg'
+  social:
+    twitter: 'https://twitter.com/<username>'
+    github: 'https://github.com/<username>'
+    facebook: 'https://www.facebook.com/<username>'
+    delicious: 'https://delicious.com/<username>'
+    linkedin: 'https://www.linkedin.com/in/<username>'
+    flickr: 'https://www.flickr.com/photos/<username>'
+  strings:
+    home_navbar_link: Home
+    blog_navbar_link: Blog
+    posts_list_header: Posts
+    date_format: 02.01.2006
+  projects:
+    algolia-hugo: 'https://github.com/duckpuppy/algolia-hugo'
+  theme:
+    inverse: false
+    name: superhero
