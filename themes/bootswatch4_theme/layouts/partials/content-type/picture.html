@@ -1,12 +1,7 @@
 <article class="card mb-4">
-        {{ if not (.Scratch.Get "singlepage") }}
-        <div class="card-header bg-light text-dark">
-            {{ partial "frontpage-post-title.html" . }}
-        </div>
-        {{ end }}
-        <div class="card-body p-0">
-        <img class="card-img-top" src="{{ .RelPermalink }}" />
-        <div class="card-text p-4">
-            {{ partial "post-content" . }}
-        </div>
-    </article>
+    <div class="card-body p-0">
+        {{ partial "content-header" . }}
+        {{ partial "featured-image" . }}
+        {{ partial "post-content" . }}
+    </div>
+</article>

@@ -1,11 +1,7 @@
 <article class="card mb-4">
     {{ $cid := (print "carousel" .UniqueID) }}
-    {{ if not (.Scratch.Get "singlepage") }}
-    <div class="card-header bg-light text-dark">
-        {{ partial "frontpage-post-title.html" . }}
-    </div>
-    {{ end }}
     <div class="card-body p-0">
+        {{ partial "content-header" . }}
         <div id="{{ $cid }}" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
                 {{ range $index, $value := .Resources.ByType "image" }}
@@ -29,7 +25,5 @@
             </a>
         </div>
     </div>
-    <div class="card-text p-4">
-        {{ partial "post-content" . }}
-    </div>
+    {{ partial "post-content" . }}
 </article>
