@@ -7,8 +7,8 @@
             </div>
             <div class="card-text pt-2">
                 <div class="list-group d-flex flex-row flex-wrap">
-                    {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
-                            <a class="list-group-item-action justify-content-between col-sm-3 d-flex align-items-center" href="{{ "/categories/" | relLangURL }}{{ $name | urlize }}">{{ $name | humanize }} <span class="badge badge-primary">{{ $taxonomy.Count }}</span></a>
+                    {{ range .Site.Taxonomies.categories.ByCount }}
+                            <a class="list-group-item-action justify-content-between col-sm-3 d-flex align-items-center" href="{{ "/categories/" | relLangURL }}{{ .Name | urlize }}">{{ .Term | humanize }} <span class="badge badge-primary">{{ .Count }}</span></a>
                     {{ end }}
                 </div>  
             </div>
