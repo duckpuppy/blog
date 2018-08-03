@@ -1,7 +1,12 @@
-<article class="mt-4">
+<article class="card mb-4">
     {{ $cid := (print "carousel" .UniqueID) }}
-    <div class="row">
-        <div id="{{ $cid }}" class="offset-md-1 col-md-10 carousel slide" data-ride="carousel">
+    {{ if not (.Scratch.Get "singlepage") }}
+    <div class="card-header bg-light text-dark">
+        {{ partial "frontpage-post-title.html" . }}
+    </div>
+    {{ end }}
+    <div class="card-body p-0">
+        <div id="{{ $cid }}" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
                 {{ range $index, $value := .Resources.ByType "image" }}
                 <li data-target="#{{ $cid }}" data-slide-to="{{ $index }}" {{ if not $index }}class="active"{{ end }}></li>
@@ -9,8 +14,8 @@
             </ol>
             <div class="carousel-inner">
                 {{ range $index, $value := .Resources.ByType "image" }}
-                    <div class="carousel-item {{ if not $index }}active{{ end }}">
-                        <img class="d-block w-100" src="{{ .RelPermalink }}" />
+                    <div class="carousel-item{{ if not $index }} active{{ end }}">
+                        <img class="card-img-top" src="{{ .RelPermalink }}" />
                     </div>
                 {{ end }}
             </div>
@@ -24,9 +29,7 @@
             </a>
         </div>
     </div>
-    <div class="row mt-4">
-        <div class="col">
-            {{ partial "post-content" . }}
-        </div>
+    <div class="card-text p-4">
+        {{ partial "post-content" . }}
     </div>
 </article>

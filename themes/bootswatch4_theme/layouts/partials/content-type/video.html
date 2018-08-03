@@ -1,6 +1,11 @@
-<article>
-    <div class="row">
-        <div class="offset-md-1 col-md-10 mt-2 embed-responsive embed-responsive-16by9">
+<article class="card mb-4">
+    <div class="card-body p-0">
+        {{ if not (.Scratch.Get "singlepage") }}
+        <div class="card-header bg-light text-dark">
+            {{ partial "frontpage-post-title.html" . }}
+        </div>
+        {{ end }}
+        <div class="embed-responsive embed-responsive-16by9">
         {{ with .Params.youtube }}
             <iframe class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/{{ . }}?rel=0" frameborder="0" allowfullscreen></iframe>
         {{ end }}
@@ -9,13 +14,8 @@
         {{ end }}
         </div>
     </div>
-    <div class="row">
-        <hr />
-    </div>
-    <div class="row">
-        <div class="col">
-            {{ partial "post-content" . }}
-        </div>
+    <div class="card-text p-4">
+        {{ partial "post-content" . }}
     </div>
 </article>
     

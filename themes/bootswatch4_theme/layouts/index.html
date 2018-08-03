@@ -4,20 +4,11 @@
             <div class="col-md-9">
                 {{ $paginator := .Paginate (where .Pages "Section" "ne" "page") (index .Site.Params "paginate" | default 10) }}
                 {{ range .Paginator.Pages }}
-                    <div class="card bg-transparent border-0">
-                        <div class="card-body p-0">
-                            <div class="card-header">
-                                {{ partial "frontpage-post-title.html" . }}
-                            </div>
-                            <div class="card-text bg-transparent mb-4">
-                                {{ if or (fileExists (print "layouts/partials/content-type/" .Type ".html") ) (fileExists (print "themes/bootswatch4_theme/layouts/partials/content-type/" .Type ".html")) }}
-                                    {{ partial (print "content-type/" .Type ".html") . }}
-                                {{ else }}
-                                    {{ partial (print "content-type/article.html") . }}
-                                {{ end }}
-                            </div>
-                        </div>
-                    </div>
+                    {{ if or (fileExists (print "layouts/partials/content-type/" .Type ".html") ) (fileExists (print "themes/bootswatch4_theme/layouts/partials/content-type/" .Type ".html")) }}
+                        {{ partial (print "content-type/" .Type ".html") . }}
+                    {{ else }}
+                        {{ partial (print "content-type/article.html") . }}
+                    {{ end }}
                 {{ end }}
             </div>
             {{ partial "frontpage-sidebar" . }}
