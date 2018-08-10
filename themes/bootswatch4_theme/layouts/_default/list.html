@@ -1,0 +1,26 @@
+{{ define "main" }}
+<main role="main" class="container">
+    <div class="row mt-4">
+        <div class="col-md-9">
+            <article class="row">
+                <header class="offset-md-1 col">
+                    <h3 class="display-5">{{ .Type | humanize | pluralize }}</h3>
+                </header>
+                {{ .Content }}
+            </article>
+            <div class="row">
+                <div class="offset-md-1 col">
+                    <ul>
+                    {{ range .Pages }}
+                        <li>
+                            <a href="{{ .Permalink }}">{{ .Date.Format "2006-01-02" }} | {{ .Title }}</a>
+                        </li>
+                    {{ end }}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {{ partial "frontpage-sidebar" . }}
+    </div>
+</main>
+{{ end }}

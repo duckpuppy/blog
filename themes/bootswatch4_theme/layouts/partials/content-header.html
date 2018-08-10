@@ -1,0 +1,5 @@
+{{ if not (.Scratch.Get "singlepage") }}
+<div class="card-header bg-light text-dark">
+    {{ partial "frontpage-post-title.html" . }}
+</div>
+{{ end }}

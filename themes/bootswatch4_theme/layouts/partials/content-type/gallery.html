@@ -1,0 +1,29 @@
+<article class="card mb-4">
+    {{ $cid := (print "carousel" .UniqueID) }}
+    <div class="card-body p-0">
+        {{ partial "content-header" . }}
+        <div id="{{ $cid }}" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                {{ range $index, $value := .Resources.ByType "image" }}
+                <li data-target="#{{ $cid }}" data-slide-to="{{ $index }}" {{ if not $index }}class="active"{{ end }}></li>
+                {{ end }}
+            </ol>
+            <div class="carousel-inner">
+                {{ range $index, $value := .Resources.ByType "image" }}
+                    <div class="carousel-item{{ if not $index }} active{{ end }}">
+                        <img class="card-img-top" src="{{ .RelPermalink }}" />
+                    </div>
+                {{ end }}
+            </div>
+            <a class="carousel-control-prev" href="#{{ $cid }}" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#{{ $cid }}" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+    {{ partial "post-content" . }}
+</article>

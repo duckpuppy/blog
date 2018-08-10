@@ -1,0 +1,13 @@
+{{ if .Resources.GetMatch "featuredImage.*" }}
+    <div>
+        <a href="{{ .URL }}">
+            <img class="card-img-top img-fluid d-block mx-auto" src="{{ (.Resources.GetMatch "featuredImage.*").RelPermalink }}" alt="">
+        </a>
+    </div>
+{{ else if and (isset .Params "featuredimage") (ne .Params.featuredImage "") }}
+    <div>
+        <a href="{{ .URL }}">
+            <img class="card-img-top img-fluid d-block mx-auto" src="{{ .Params.featuredImage | relURL }}" alt="">
+        </a>
+    </div>
+{{ end }}

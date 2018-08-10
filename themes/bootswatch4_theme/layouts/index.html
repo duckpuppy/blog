@@ -1,0 +1,24 @@
+{{ define "main" }}
+    <main role="main" class="container">
+        <div class="row mt-4">
+            <div class="col-md-9">
+                {{ $paginator := .Paginate (where .Pages "Section" "ne" "page") (index .Site.Params "paginate" | default 10) }}
+                {{ range .Paginator.Pages }}
+                    {{ if or (fileExists (print "layouts/partials/content-type/" .Type ".html") ) (fileExists (print "themes/bootswatch4_theme/layouts/partials/content-type/" .Type ".html")) }}
+                        {{ partial (print "content-type/" .Type ".html") . }}
+                    {{ else }}
+                        {{ partial (print "content-type/article.html") . }}
+                    {{ end }}
+                {{ end }}
+            </div>
+            {{ partial "frontpage-sidebar" . }}
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-center">
+                    {{ template "_internal/pagination.html" }}
+                </div>
+            </div>
+        </div>
+    </main>
+{{ end }}
